@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class VideoAdapter(
     private val recyclerView: RecyclerView
-) : RecyclerView.Adapter<VideoVideoHolder>() {
+) : RecyclerView.Adapter<VideoViewHolder>() {
 
     private var hasFocus = false
 
@@ -22,11 +22,11 @@ class VideoAdapter(
 
     override fun getItemCount() = 3
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VideoVideoHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = VideoViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.video_item, parent, false)
     )
 
-    override fun onBindViewHolder(holder: VideoVideoHolder, position: Int) = holder.bind()
+    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) = holder.bind()
 
     fun play() {
         hasFocus = true
@@ -42,7 +42,7 @@ class VideoAdapter(
         tryToStop()
         with(recyclerView.layoutManager as LinearLayoutManager) {
             findFirstCompletelyVisibleItemPosition().let {
-                if (it != -1) (recyclerView.findViewHolderForAdapterPosition(it) as? VideoVideoHolder)?.play()
+                if (it != -1) (recyclerView.findViewHolderForAdapterPosition(it) as? VideoViewHolder)?.play()
             }
         }
     }
@@ -50,7 +50,7 @@ class VideoAdapter(
     private fun tryToStop() {
         with(recyclerView.layoutManager as LinearLayoutManager) {
             for (position in 0..itemCount) {
-                (recyclerView.findViewHolderForAdapterPosition(position) as? VideoVideoHolder)?.stop()
+                (recyclerView.findViewHolderForAdapterPosition(position) as? VideoViewHolder)?.stop()
             }
         }
     }

@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
 import kotlinx.android.synthetic.main.video_item.view.*
 
-class VideoVideoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class VideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val player = itemView.exoPlayer
 
